@@ -1,0 +1,301 @@
+/* App Container */
+.app-container {
+  display: flex;
+  height: 100vh;
+  background-color: #121212; /* Dark background */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #1e272e; /* Darker sidebar background */
+  color: #ecf0f1; /* Light text for better readability */
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #7f8c8d; /* Lighter border color */
+  padding-bottom: 5px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 10px;
+  background: #34495e;
+  margin: 5px 0;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.sidebar li:hover {
+  background: #16a085; /* Lighter hover color */
+}
+
+/* Chat Container */
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+  background: #121212 ; /* Dark chat background */
+}
+
+/* Chat Box */
+.chat-box {
+  width: 100%;
+  height: 70vh;
+  overflow-y: auto;
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+  background: #1f1f1f; /* Darker background for chat box */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+  color: #ecf0f1; /* Light text color */
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Message Bubbles */
+.user-message, .bot-message {
+  padding: 12px 20px;
+  margin: 10px 0;
+  border-radius: 25px;
+  max-width: 80%;
+  word-wrap: break-word;
+  font-size: 16px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* User Message Styling */
+.user-message {
+  background: #e9e9dc; /* Teal for user messages */
+  color: #0e0202;
+  align-self:flex-end;
+  border-bottom-right-radius: 0; /* Flat right border for user */
+  white-space: nowrap;
+}
+
+/* Bot Message Styling */
+.bot-message {
+  display: inline-block; /* Makes the box wrap around the text */
+  max-width: 80%; /* Prevents it from stretching too much */
+  padding: 10px 15px;
+  background-color: #3753cfcc; /* Your current background */
+  color: #dbdee3;
+  border-radius: 8px;
+  margin: 5px 0;
+  word-wrap: break-word; /* Ensures long words break properly */
+  white-space: pre-wrap; /* Maintains formatting */
+  background-color: #2b3658; /* Dark slate with less strain */
+  color: #f4f6f8; /* Soft light for readability */
+  padding: 1px 20px;
+  border-radius: 12px;
+  margin: 10px 0;
+  max-width: 90%;
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  font-size: 15px;
+  box-shadow: none;
+  animation: fadeInUp 0.4s ease-out forwards;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Chat Bubbles Hover Effect */
+.user-message:hover, .bot-message:hover {
+  transform: scale(1.05); /* Slight zoom-in effect */
+}
+
+/* Input Container */
+.input-container {
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+  padding: 0 15px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Input Field Styling */
+.input-container input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background: #333333; /* Darker input field */
+  color: #ecf0f1;
+  font-size: 16px;
+  outline: none;
+  transition: background 0.3s ease-in-out;
+}
+
+.input-container input:focus {
+  background: #444444; /* Slightly lighter focus effect */
+}
+
+/* Send Button Styling */
+.input-container button {
+  padding: 12px 18px;
+  background: #2980b9; /* Dark blue button */
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s ease-in-out;
+}
+
+.input-container button:hover {
+  background: #1abc9c; /* Lighter teal on hover */
+}
+
+/* Scrollbar Styling */
+.chat-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+  background-color: #7f8c8d;
+  border-radius: 10px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+  background: #1f1f1f;
+}
+
+/* Animations for Smooth Message Appearance */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Headings inside bot messages */
+.bot-message h2, .bot-message h3 {
+  color: #b4bec2; /* Light blue accent */
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Bold Text */
+.bot-message strong {
+  color: #edf0f2; 
+  font-weight: 600;
+}
+
+/* ✅ Bullet Point Fix for Bot Message */
+.bot-message ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  list-style-position: outside;
+}
+
+.bot-message li {
+  margin-bottom: 0.4rem;
+  padding-left: 0.2rem;
+}
+
+/* ✅ Ordered List Fix for Bot Message */
+.bot-message ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  list-style-position: outside;
+}
+
+.bot-message ol li {
+  margin-bottom: 0.6rem;
+  padding-left: 0.2rem;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+  }
+
+  .chat-container {
+    padding: 10px;
+  }
+
+  .chat-box {
+    height: 50vh;
+    font-size: 14px;
+  }
+
+  .input-container input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .input-container button {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+
+  .sidebar li {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .sidebar h3 {
+    font-size: 16px;
+  }
+}
+
+/* Extra Small Mobile Optimization */
+@media (max-width: 480px) {
+  .chat-box {
+    height: 45vh;
+    font-size: 12px;
+  }
+
+  .input-container input {
+    font-size: 12px;
+    padding: 8px;
+  }
+  
+  
+
+  
+
+  .input-container button {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}
