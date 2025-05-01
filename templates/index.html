@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PathwayPro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="main-layout">
+        <div class="chat-container">
+            <div class="chat-header">
+                PathwayPro
+                <button id="theme-toggle">dark mode</button>
+            </div>
+
+            <!-- Tagline -->
+            <p class="chat-tagline">Your AI Guide to Career Success</p>
+
+            <div id="chat-box"></div>
+
+            <div class="chat-input-container">
+                <input type="text" id="user-input" placeholder="Ask me anything..." required>
+                <button type="submit" id="send-btn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
