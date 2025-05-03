@@ -58,7 +58,7 @@ function ChatbotPage() {
     setInput("");
 
     try {
-      const response = await axios.post("https://career-guidance-chatbot-jhim.onrender.com/", {
+      const response = await axios.post("https://career-guidance-chatbot-jhim.onrender.com/chat", {
         message: input,
       });
 
