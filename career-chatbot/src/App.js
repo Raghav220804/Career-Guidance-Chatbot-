@@ -36,6 +36,7 @@ function SignUp() {
   );
 }
 
+// Chatbot Page
 function ChatbotPage() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
@@ -55,23 +56,18 @@ function ChatbotPage() {
     const newMessages = [...messages, { text: input, sender: "user" }];
     setMessages(newMessages);
     setHistory((prev) => [...prev, input]);
+    const userMessage = input;
     setInput("");
 
-    axios.post("https://career-guidance-chatbot-jhim.onrender.com/chat", {
-  message: userInput
-})
-.then((res) => {
-  const botResponse = res.data.response;
-  // handle the response
-})
-.catch((err) => {
-  console.error("Error connecting to chatbot:", err);
-  // show error in UI
-});
+    try {
+      const response = await axios.post("https://career-guidance-chatbot-jhim.onrender.com/chat", {
+        message: userMessage,
+      });
 
-      setMessages([...newMessages, { text: response.data.response, sender: "bot" }]);
+      const botResponse = response.data.response;
+      setMessages([...newMessages, { text: botResponse, sender: "bot" }]);
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error connecting to chatbot:", error);
       setMessages([...newMessages, { text: "Error connecting to chatbot!", sender: "bot" }]);
     }
   };
@@ -121,6 +117,13 @@ function ChatbotPage() {
   );
 }
 
+// Landing Page Wrapper
+function LandingPageLink() {
+  const navigate = useNavigate();
+  return <LandingPage onStartChat={() => navigate("/chat")} />;
+}
+
+// Main App
 function App() {
   return (
     <Router>
@@ -134,11 +137,6 @@ function App() {
       </div>
     </Router>
   );
-}
-
-function LandingPageLink() {
-  const navigate = useNavigate();
-  return <LandingPage onStartChat={() => navigate("/chat")} />;
 }
 
 export default App;
