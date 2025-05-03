@@ -57,10 +57,17 @@ function ChatbotPage() {
     setHistory((prev) => [...prev, input]);
     setInput("");
 
-    try {
-      const response = await axios.post("https://career-guidance-chatbot-jhim.onrender.com/chat", {
-        message: input,
-      });
+    axios.post("https://career-guidance-chatbot-jhim.onrender.com/chat", {
+  message: userInput
+})
+.then((res) => {
+  const botResponse = res.data.response;
+  // handle the response
+})
+.catch((err) => {
+  console.error("Error connecting to chatbot:", err);
+  // show error in UI
+});
 
       setMessages([...newMessages, { text: response.data.response, sender: "bot" }]);
     } catch (error) {
