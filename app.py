@@ -4,6 +4,7 @@ import sqlite3
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
+CORS(app, origins=["https://careerguidancechatbot.netlify.app", "http://localhost:3000"])
 
 load_dotenv()
 
