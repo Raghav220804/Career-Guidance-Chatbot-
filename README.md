@@ -38,20 +38,7 @@ An AI-powered chatbot built with Flask that provides personalized career guidanc
 
 ---
 
-## 🧩 Folder Structure
-career-guidance-chatbot/
-│
-├── static/ # CSS, JS, Images
-├── templates/ # HTML templates
-│ └── index.html
-├── app.py # Main Flask app
-├── chatbot/ # AI logic and response generator
-│ └── responder.py
-├── db/ # SQLite DB and schema
-│ └── users.db
-├── utils/ # Utility scripts (scraper, resume parser)
-├── README.md
-└── requirements.txt
+
 
 Create a Virtual Env
 
